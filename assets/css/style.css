@@ -1,4 +1,4 @@
-/*=============== copyright 2025 Mari & Denny ===============*/
+/*=============== copyright 2025 Mauricio ===============*/
 
 /*-----------------------------------*\
   #VARIÁVEIS
@@ -42,6 +42,7 @@
   --ff-japanese: 'Zen Kaku Gothic New', sans-serif;
   --ff-mono: 'Fira Code', monospace;
 
+  /*==== Tamanho da fonte ====*/
   --fs-1: 3.6rem;
   --fs-2: 2.4rem;
   --fs-3: 2rem;
@@ -50,8 +51,10 @@
   --fs-6: 1.3rem;
   --fs-7: 1.1rem;
 
+  /*==== negrito ====*/
   --weight-light: 300;
   --weight-regular: 400;
+  --weight-semiBold: 600;
   --weight-bold: 700;
 
   /*==== Bordas e Radius ====*/
@@ -67,22 +70,44 @@
   --shadow-soft: 0 0 10px rgba(255, 0, 0, 0.2);
   --shadow-strong: 0 0 20px rgba(255, 0, 0, 0.4);
   --shadow-inset: inset 0 0 10px rgba(255, 0, 0, 0.2);
+  --shadow-dark: 0 0 20px rgba(0, 0, 0, 0.5);
+  --shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 0, 0, 0.5);
 
   /*==== Espaçamento ====*/
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 32px;
+  --section-padding: 60px;
   --space-xl: 64px;
 
   /*==== Transições e Animações ====*/
   --transition-fast: 200ms ease;
   --transition-smooth: 400ms ease-in-out;
   --cubic-glitch: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --transition-1: 250ms ease;
+  --transition-2: 500ms ease;
 
   /*==== Clip paths ====*/
   --clip-blade: polygon(0 0, 100% 10%, 90% 100%, 0% 90%);
   --clip-shuriken: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  --clip-katana-slice: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+  --clip-shield-samurai: polygon(50% 0%, 90% 20%, 100% 60%, 50% 100%, 0% 60%, 10% 20%);
+  --clip-sai-blade: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+  --clip-shatter-star: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+  --clip-samurai-mask: polygon(20% 0%, 80% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+
+
+
+  --clip-path-1: polygon(0 0, 100% 0, 100% 0, 0 0);
+  --clip-path-2: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  --clip-path-3: polygon(0% 0%, 90% 0, 100% 30%, 100% 100%, 0 100%);
+  --clip-path-4: polygon(90% 0, 100% 40%, 100% 100%, 0 100%, 0 0);
+  --clip-path-5: polygon(100% 0, 100% 100%, 10% 100%, 0 60%, 0 0);
+  --clip-path-6: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 40%);
+  --clip-path-7: polygon(100% 0, 100% 60%, 90% 100%, 0 100%, 0 0);
+  --clip-path-8: polygon(0% 0%, 70% 0, 100% 30%, 100% 100%, 0 100%);
+  --clip-path-9: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
 
   /*==== Z-index ====*/
   --z-header: 100;
@@ -202,6 +227,7 @@ body {
 
 .search-btn {
   background-color: none;
+  color: var(--ronin-red-dark);
   border: none;
   cursor: pointer;
   font-style: 1.6rem;
@@ -212,6 +238,7 @@ body {
 .search-btn:hover {
   transform: scale(1.1);
   color: var(--black-700);
+  color: var(--ronin-red-light);
 }
 
 /*-----------------------------------*\
@@ -333,11 +360,77 @@ body {
 .dropdown-link:hover {
   background: var(--gradient-red-glow);
   color: var(--text-primary);
+  clip-path: var(--clip-blade);
 }
 
 .dropdown-item.active .dropdown-menu {
   display: flex;
   flex-direction: column;
+}
+
+/* overlay busca */
+.search-overlay {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* input */
+.search-container {
+  width: 90%;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: var(--radius-soft);
+  outline: none;
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.search-input::placeholder {
+  color: var(--gray-400)  ;
+}
+
+.close-btn {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--ronin-red);
+  transition: transform 0.2s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9)
+  }
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
 }
 
 /* Banner */
