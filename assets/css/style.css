@@ -661,7 +661,8 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0 auto;
-  background: var(--gray-200);
+  background: var(--gradient-dark-red);
+  color: var(--white);
 }
 
 .wrapper {
@@ -669,7 +670,8 @@ body {
   width: 750px;
   height: 450px;
   background: transparent;
-  border: 2px solid var(--ronin-red);
+  border: 5px solid var(--ronin-red);
+  border-radius: var(--radius-medium);
 }
 
 .wrapper .form-box {
@@ -680,12 +682,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: purple;
+  background: var(--ronin-red-light);
 }
 
 .form-box h2 {
   font-size: var(--fs-2);
-  color: var(--black-900);
+  color: var(--white);
   text-align: center;
 }
 
@@ -703,7 +705,7 @@ body {
   outline: none;
   border-bottom: 2px solid var(--ronin-red);
   font-size: 16px;
-  color: var(--ronin-red);
+  color: var(--white);
   font-weight: 600;
   position: absolute;
 }
@@ -723,7 +725,24 @@ body {
   top: 50%;
   right: 0;
   font-size: 18px;
-  color: var(--ronin-red);
+  color: var(--white);
   transform: translateY(-50%);
   transition: 0.5s;
+}
+
+.logreg-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logreg-link a {
+  color: var(--ronin-red-dark);
+  font-size: var(--fs-5);
+  font-weight: var(--weight-bold);
+}
+
+.form-box .btn-login {
+  display: block;
+  margin: 20px auto; /* Centraliza horizontalmente */
+  padding: 10px 20px;
 }
