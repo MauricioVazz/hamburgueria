@@ -773,10 +773,16 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+  color: var(--white );
 }
 
 .section {
   padding-block: var(--section-padding);
+}
+
+.section.about {
+  background-color: var(--black-900); /* Substitua pelo código de cor desejado */
+  padding: 20px; /* Adicione espaçamento interno, se necessário */
 }
 
 .about-banner {
