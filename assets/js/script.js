@@ -65,3 +65,24 @@ document.addEventListener('keydown', (e) => {
         lightbox.classList.remove('show');
     }
 })
+
+// abrir o login
+const openLoginBtn = document.getElementById('openLogin')
+const containerLogin = document.querySelector('.container-login')
+
+openLoginBtn.addEventListener('click', () => {
+    containerLogin.classList.add('active')
+})
+
+// Fevhar ao clicar fora do formulario ou pressionar ESC
+containerLogin.addEventListener('click', (e) => {
+    if (e.target === containerLogin) {
+        containerLogin.classList.remove('active')
+    }
+})
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        containerLogin.classList.remove('active')
+    }
+})

@@ -83,7 +83,7 @@
                 </ul>
             </nav>
 
-            <a href="#" class="btn">Login</a>
+            <a href="#" class="btn" id="openLogin">Login</a>
 
             <button class="search-btn" id="searchToggle" aria-label="Buscar">
                 <ion-icon name="search-outline"></ion-icon>
@@ -110,6 +110,7 @@
         </div>
     </header>
 
+    
     <!-- banner -->
     <section class="banner">
         <video autoplay muted loop>
@@ -117,6 +118,25 @@
         </video>
     </section>
 
+    <!-- sobre -->
+    <section class="section about" aria-label="sobre" id="sobre">
+        <div class="container-sobre">
+            <figure class="about-banner">
+                <img src="assets/img/sobre3.jpeg" alt="sobre" class="w-100 efeito">
+            </figure>
+            <div class="about-content">
+                <p class="section-subtitle">Sobre Rounin Tec</p>
+                <h2 class="h2 text-center">Ajeitando seu PC no modo ninja de ser</h2>
+                <p class="section-text-1">
+                    A Ronin Tec é uma empresa especializada em serviços de informática, oferecendo soluções completas para atender às necessidades dos nossos clientes. Com uma equipe de profissionais altamente capacitados e apaixonados por tecnologia, garantimos um atendimento de qualidade e resultados excepcionais.
+                    Nossa missão é proporcionar um serviço ágil e eficiente, sempre buscando a satisfação do cliente. Trabalhamos com formatação de computadores, remoção de vírus, recuperação de dados, montagem de PCs e venda de peças, entre outros serviços.
+                </p>
+                <a href="#" class="btn">Saiba mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- imagens galeria -->
     <section class="section gallery" id="tenica">
         <div class="container-galeria">
             <p class="section-subtitle text-center">Nosso Trabalho</p>
@@ -129,25 +149,26 @@
             <img src="assets/img/placa2.jpg" alt="foto3"/>
             <img src="assets/img/water-cooler.webp" alt="foto4"/>
         </div>
-
+        
         <div class="botao-ver-mais">
             <a href="#" class="btn-ver-mais" title="Ver Serviços">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
         </div>
-
+        
         <!-- lightbox -->
         <div class="lightbox" id="lightbox">
             <img src="" alt="imagem ampliada" id="lightbox-img"/>
         </div>
     </section>
-
+    
+    
     <!-- Serviços -->
     <section class="section service" aria-label="service">
         <div class="container-serv">
             <p class="section-subtitle text-center">Nossos Serviços</p>
             <h2 class="h2 section-title text-center">O que oferecemos</h2>
-
+            
             <ul class="service-list">
                 <!-- card 1 -->
                 <li>
@@ -248,7 +269,7 @@
     <section class="container-login">
         <div class="wrapper">
             <div class="form-box">
-                <h2>Login</h2>
+                <h2 class="animation">Login</h2>
     
                 <form action="#">
                     <div class="input-box">
