@@ -686,9 +686,10 @@ body {
   background: transparent;
   border: 5px solid var(--ronin-red);
   border-radius: var(--radius-medium);
+  overflow: hidden;
 }
 
-.wrapper .form-box {
+.wrapper .form-box{
   position: absolute;
   top: 0;
   width: 50%;
@@ -696,7 +697,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--ronin-red-light);
 }
 
 .form-box h2 {
@@ -722,9 +722,10 @@ body {
   color: var(--white);
   font-weight: 600;
   position: absolute;
+  padding-right: 23px;
 }
 
-.inout-box label {
+.input-box label {
   position: absolute;
   top: 50%;
   left: 0;
@@ -732,6 +733,7 @@ body {
   color: var(--ronin-red);
   transform: translateY(-50%);
   transition: 0.5s;
+  pointer-events: none;
 }
 
 .input-box ion-icon {
@@ -744,7 +746,7 @@ body {
   transition: 0.5s;
 }
 
-.logreg-link {
+/* .logreg-link {
   text-align: center;
   margin-top: 20px;
 }
@@ -757,8 +759,141 @@ body {
 
 .form-box .btn-login {
   display: block;
-  margin: 20px auto; /* Centraliza horizontalmente */
+  margin: 20px auto; /* Centraliza horizontalmente
   padding: 10px 20px;
+} */
+
+.btn-login {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.form-box .logreg-link.login {
+  font-size: 14px;
+  color: var(--white);
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.logreg-link {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.logreg-link p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  font-size: var(--fs-8);
+}
+
+.logreg-link p a {
+  color: var(--ronin-red-dark);
+  font-weight: var(--weight-bold);
+}
+
+.logreg-link p a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .form-box.login {
+  left: 0;
+  padding: 0 60px 0 40px;
+}
+
+.input-box input:focus ~ label, .input-box input:valid ~ label {
+  top: -5px;
+  color: var(--white);
+}
+
+password .input-box input:focus ~ ion-icon, .input-box input:valid ~ ion-icon {
+  top: -5px;
+  color: var(--white);
+}
+
+.wrapper .info-text {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper .info-text.login {
+  right: 0;
+}
+
+.info-text h2 {
+  font-size: 32px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.info-text p {
+  font-size: 16px;
+  color: var(--white);
+  margin-top: 10px;
+}
+
+.wrapper .info-text.login {
+  right: 0;
+  text-align: right;
+  padding: 0 40px 0 100px;
+}
+
+.wrapper .bg-animete {
+  position: absolute;
+  background: var(--gradient-red-glow);
+  top: 0;
+  right: 0;
+  width: 850px;
+  height: 600px;
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  border-bottom: 3px solid var(--ronin-red);
+}
+
+.wrapper .bg-animete2 {
+  position: absolute;
+  background: var(--gradient-red-glow);
+  top: 100%;
+  left: 250px;
+  width: 850px;
+  height: 700px;
+  /* transform: rotate(-11deg) skewY(-44deg); */
+  transform: rotate(0deg) skewY(0deg);
+  transform-origin: bottom left;
+  border-bottom: 3px solid var(--ronin-red);
+}
+
+.wrapper .form-box.register {
+  right: 0;
+  padding: 0 40px 0 60px;
+  display: none;
+}
+
+.wrapper .info-text.register {
+  left: 0;
+  text-align: left;
+  padding: 0 150px 0 40px;
+  display: none;
+}
+
+.wrapper.active .form-box.login .animation {
+  transform: translateX(-120%);
+}
+
+.wrapper .form-box.login .animation {
+  transition: 0.7s ease;
+  transform: translateX(0);
 }
 
 /*-----------------------------------*\
@@ -821,9 +956,9 @@ body {
   max-width: 180px;
 }
 
-/* .efeito {
+.efeito {
   -webkit-mask-image: linear-gradient(to border-bottom, black 90%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-} */
+}
