@@ -746,23 +746,6 @@ body {
   transition: 0.5s;
 }
 
-/* .logreg-link {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.logreg-link a {
-  color: var(--ronin-red-dark);
-  font-size: var(--fs-5);
-  font-weight: var(--weight-bold);
-}
-
-.form-box .btn-login {
-  display: block;
-  margin: 20px auto; /* Centraliza horizontalmente
-  padding: 10px 20px;
-} */
-
 .btn-login {
   width: 100%;
   margin-top: 30px;
@@ -887,8 +870,19 @@ password .input-box input:focus ~ ion-icon, .input-box input:valid ~ ion-icon {
   display: none;
 }
 
+.wrapper .info-text.login .animation{
+  transition: 0.7s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .info-text.login .animation{
+  transform: translateX(120%);
+  transition-delay: calc(0.1s * var(--i));
+}
+
 .wrapper.active .form-box.login .animation {
   transform: translateX(-120%);
+  transition-delay: calc(0.1s * var(--i));
 }
 
 .wrapper .form-box.login .animation {
